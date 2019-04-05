@@ -1,0 +1,25 @@
+<% include partials/header %>
+
+
+<div class="container">
+    <div class="main">
+        <p class="display-4"><%= data.query.search[0].title %></p>
+    </div>
+    
+    <% data.query.search.forEach(e => { %>
+        <div class="card">
+            <div class="card-header">
+                <h2 class=""><%= e.title %></h2>
+            </div>
+            <div class="card-body">
+                <p><%= e.snippet.replace(/<span class="searchmatch">/g, "").replace(/<\/span>/g, "") %></p>
+                <a class="btn btn-primary btn-lg" href="http://en.wikipedia.org/?curid=<%= e.pageid %>">Full page</a>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+
+
+<% include partials/footer %>
+
